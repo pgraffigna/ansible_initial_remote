@@ -1,0 +1,21 @@
+---
+- name: Instalación de dependencias
+  apt: 
+    name: ['nano']
+
+- name: Inserta línea al final del archivo
+  blockinfile:
+    path: "{{ home }}/.nanorc"
+    block: | 
+      include /usr/share/nano/nanorc.nanorc
+      include /usr/share/nano/python.nanorc
+      include /usr/share/nano/php.nanorc
+      include /usr/share/nano/sh.nanorc
+      set nonewlines # no agregar newlines al final del archivo
+      set smooth  # agrega despliegue suave de la pantalla
+      set nowrap # no wrap
+      set nohelp # no muestra el menu de ayuda
+      set linenumbers
+    create: yes
+    owner: "{{ usuario }}"
+    group: "{{ usuario }}"   

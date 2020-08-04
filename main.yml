@@ -1,0 +1,13 @@
+---
+- hosts: testing
+  become: true
+  
+  roles:	 
+    - tmux
+    - nano
+    - brave
+    - code
+    - vbox
+    - vagrant
+    - git
+    

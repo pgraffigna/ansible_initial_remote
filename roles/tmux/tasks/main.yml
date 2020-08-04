@@ -1,0 +1,34 @@
+---
+- name: Actualiza la cache de los repos
+  apt: 
+    update_cache: yes
+
+- name: Instalación de dependencias
+  apt: 
+    name: ['tmux', 'gawk', 'perl', 'sed']
+
+- name: Clona el repo
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: /opt/.tmux.git
+
+- name: Crea link simbolico
+  file:
+    src: /opt/.tmux.git/.tmux.conf
+    dest: "{{ home }}/.tmux.conf"
+    owner: "{{ usuario }}"
+    group: "{{ usuario }}"
+    state: link    
+    follow: false
+
+- name: Copia archivo de configuración
+  shell: | 
+    cp /opt/.tmux.git/.tmux.conf.local "{{ home }}/.tmux.conf.local"      
+    chown "{{ usuario }}": "{{ usuario }}" "{{ home }}/.tmux.conf.local"
+
+- name: Inserta línea al final del archivo
+  blockinfile:
+    path: "{{ home }}/.tmux.conf"
+    block: | 
+      set -g status-left-length 140
+      set -g status-left "#[fg=brightblue]#(ip addr show dev enp0s8 | grep "inet[^6]" | awk '{print $2}' | cut -d/ -f1)" 

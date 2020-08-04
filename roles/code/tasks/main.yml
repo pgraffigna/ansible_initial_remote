@@ -1,0 +1,9 @@
+---
+- name: Instalación de dependencias
+  apt: 
+    name: ['snapd']
+
+- name: Instalar vscode con opción --classic
+  snap:
+    name: code
+    classic: yes    
