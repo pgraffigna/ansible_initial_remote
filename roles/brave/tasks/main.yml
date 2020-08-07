@@ -12,9 +12,10 @@
   apt_repository:
     repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
     state: present
+    update_cache: yes
 
 - name: Instalar Brave
   apt:
     name: brave-browser
     state: present
-    update_cache: yes
+    
