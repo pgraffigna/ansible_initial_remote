@@ -10,7 +10,7 @@
     dest: /tmp/
     force: yes    
 
-- name: virtualbox | Install VirtualBox extension pack
+- name: Instalación VirtualBox extension pack
   shell: "echo 'y' | VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack-{{ version }}.vbox-extpack"
 
 - name: Asegurarse que los módulos de vbox se cargaron
