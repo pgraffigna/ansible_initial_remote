@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
 
     test.vm.provider :virtualbox do |vbox|
       vbox.name = "test-machine"
-      vbox.memory = 512
+      vbox.memory = 2048
+      vbox.cpus = 1
     end
   end
 end

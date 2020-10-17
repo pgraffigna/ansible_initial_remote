@@ -3,12 +3,12 @@
   apt: 
     name: ['software-properties-common','apt-transport-https']
 
-- name: Importar Brave key
+- name: Importar llave
   apt_key:
     url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc 
     state: present
   
-- name: Agregar Brave repo
+- name: Agregar repo
   apt_repository:
     repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
     state: present

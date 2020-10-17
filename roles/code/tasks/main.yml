@@ -3,7 +3,7 @@
   apt: 
     name: ['snapd']
 
-- name: Instalar vscode con opción --classic
+- name: Instalar vscode 
   snap:
     name: code
     classic: yes    

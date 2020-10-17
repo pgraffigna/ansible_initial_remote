@@ -3,7 +3,7 @@
   apt: 
     name: ['nano']
 
-- name: Inserta línea al final del archivo
+- name: Insertar líneas al final del archivo
   blockinfile:
     path: "{{ home }}/.nanorc"
     block: | 

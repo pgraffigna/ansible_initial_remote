@@ -1,0 +1,6 @@
+---
+- name: Instalación de dependencias
+  apt: 
+    name: ['virtualbox-guest-utils', 'virtualbox-guest-x11']
+  notify:
+    - reiniciar  
