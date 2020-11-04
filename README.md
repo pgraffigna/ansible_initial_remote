@@ -7,6 +7,7 @@ Testeado con vagrant + virtualbox
 roles:	 
 - tmux
 - nano
+- mc
 - brave
 - code
 - vbox
