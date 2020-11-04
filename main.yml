@@ -5,6 +5,7 @@
   roles:	 
     - tmux
     - nano
+    - mc  
     - brave
     - code
     - vagrant
